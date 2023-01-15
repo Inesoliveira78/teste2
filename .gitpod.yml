@@ -1,0 +1,38 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks: 
+  - init: |
+      (
+
+          #Install libsndfile to prevent malfunction on gitpod
+          apt-get install libsndfile1-dev
+
+
+          #Install Streamlit
+          sudo pip3 install streamlit
+
+
+          #Install Paho-MQTT
+          sudo pip3 install paho-mqtt
+
+          #Install other Python Libraries
+          #python -m pip install sounddevice
+
+          sudo apt-get install libsndfile1
+          sudo pip install librosa
+          python -m pip install scipy
+          python -m pip install matplotlib
+          python -m pip install pandas
+          python -m pip install time
+          python -m pip install json
+          pip install plotly==5.11.0
+
+          
+      )
+      
+ports:
+  - port: 1883
+    onOpen: ignore
+  - port: 8501
+    name: Web App
+    onOpen: open-browser
+    visibility: public
